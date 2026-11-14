@@ -24,7 +24,7 @@ whole-device VPNs together. Preserve a working VPN until you explicitly switch.
 
 In **Settings → Connection → Software and Core updates**, choose **Check for updates**.
 Automatic checks run on launch if due and at most daily; they only offer updates.
-Choose **Later**, **Core only**, or **Update application**. Application updates
+The notice shows **Release notes**, **Update now** and **Later**. Core-only updates are available in Settings. Application updates
 require Link to be disconnected and its host restoration confirmed. Core-only
 updates preserve the active connection and take effect at the next explicit
 connection. The previous app/core remains available for rollback.
