@@ -38,12 +38,20 @@ jobs:
           import json,subprocess,pathlib,os,hashlib
           repo=os.environ['GITHUB_REPOSITORY'];r=json.loads(pathlib.Path('verified-release.json').read_text());tag=r['tag']
           gh=lambda *a:subprocess.run(['gh',*a],check=True)
-          gh('release','upload',tag,'--repo',repo,'--clobber',*[str(pathlib.Path('payload')/n)for n in r['files']])
+          releases=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/releases']))
+          release=next(x for x in releases if x['tag_name']==tag)
+          def same(assets,name):
+            p=pathlib.Path('payload')/name;a=next((x for x in assets if x['name']==name),{})
+            return a.get('state')=='uploaded'and a.get('size')==p.stat().st_size and a.get('digest')=='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()
+          missing=[n for n in r['files']if not same(release['assets'],n)]
+          if missing:gh('release','upload',tag,'--repo',repo,'--clobber',*[str(pathlib.Path('payload')/n)for n in missing])
           releases=json.loads(subprocess.check_output(['gh','api','repos/'+repo+'/releases']))
           release=next(x for x in releases if x['tag_name']==tag)
           for name in r['files']:
             asset=next(x for x in release['assets']if x['name']==name);p=pathlib.Path('payload')/name
             assert asset['state']=='uploaded'and asset['size']==p.stat().st_size and asset['digest']=='sha256:'+hashlib.sha256(p.read_bytes()).hexdigest()
-          gh('release','edit',tag,'--repo',repo,'--draft=false','--prerelease')
-          gh('release','upload','beta','--repo',repo,'--clobber','payload/update-darwin-arm64.json','payload/update-darwin-arm64.sig')
+          if release['draft']:gh('release','edit',tag,'--repo',repo,'--draft=false','--prerelease')
+          channel=next(x for x in releases if x['tag_name']=='beta')
+          updates=[n for n in ['update-darwin-arm64.json','update-darwin-arm64.sig']if not same(channel['assets'],n)]
+          if updates:gh('release','upload','beta','--repo',repo,'--clobber',*[str(pathlib.Path('payload')/n)for n in updates])
           PY
