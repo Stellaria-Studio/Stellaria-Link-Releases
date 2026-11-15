@@ -2,11 +2,17 @@
 
 **为日常连接而设计的 VPN 客户端。**
 
-[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.2) · [快速开始](#快速开始) · [English](README.en.md)
+[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.3/Stellaria-Link-0.10.3-0J03b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.3) · [快速开始](#快速开始) · [English](README.en.md)
 
-**0.10.2 · 0J02b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
+**0.10.3 · 0J03b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
 
 Stellaria Link 将加密连接、节点选择、规则分流与连接维护整合进一个紧凑的桌面面板。LinkCore 负责数据传输与连接生命周期，LinkGuard 观察信道状态并按需执行恢复策略，让日常连接更容易管理。
+
+## 0J03b 更新
+
+- 修复已确认的节点证书风险选择在域名解析或网络接口变化后失效的问题。
+- 首次导入自动准备所需 GEO 数据，保留支持的策略组与分流规则；缓存每 24 小时按需刷新，离线时保留已验证的缓存。
+- 调整完整配置预检的等待时间与证书风险提示。
 
 ![Stellaria Link 连接首页](docs/images/connection.png)
 
@@ -23,7 +29,7 @@ Stellaria Link 将加密连接、节点选择、规则分流与连接维护整�
 
 ## 快速开始
 
-1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.2) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
+1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.3) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
 2. 打开 Link，点击 **添加连接**，粘贴机场 HTTPS 订阅、节点链接，或导入已有 YAML 配置。
 3. 在 **节点** 页测试并选择节点或策略组，回到首页选择连接范围，点击 **连接**。
 4. 在 **订阅** 页管理配置；在 **设置 → 桌面 → 机场自动更新** 开启定时更新。

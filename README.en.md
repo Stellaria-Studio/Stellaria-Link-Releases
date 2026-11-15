@@ -2,11 +2,17 @@
 
 **A focused VPN client for everyday connectivity.**
 
-[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.2) · [Getting started](#getting-started) · [简体中文](README.md)
+[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.3/Stellaria-Link-0.10.3-0J03b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.3) · [Getting started](#getting-started) · [简体中文](README.md)
 
-**0.10.2 · 0J02b**　|　macOS · Apple Silicon　|　Public Beta update
+**0.10.3 · 0J03b**　|　macOS · Apple Silicon　|　Public Beta update
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
+
+## What’s new in 0J03b
+
+- Fixes explicitly approved node certificate-risk choices being lost after hostname resolution or network-interface changes.
+- Prepares required GEO data during import so supported policy groups and routing rules are retained. The cache refreshes on demand after 24 hours, with validated cached data retained when offline.
+- Adjusts full-configuration preflight timeouts and certificate-risk messaging.
 
 ![Stellaria Link connection overview](docs/images/connection.png)
 
@@ -23,7 +29,7 @@ Stellaria Link brings encrypted connections, node selection, routing rules and c
 
 ## Getting started
 
-1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.2) and drag **Stellaria Link** into **Applications**.
+1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.3) and drag **Stellaria Link** into **Applications**.
 2. Open Link and select **添加连接 (Add connection)** to paste an HTTPS subscription, import a node link or load an existing YAML configuration.
 3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose a connection scope and select **连接 (Connect)**.
 4. Manage configurations on the **订阅 (Subscriptions)** page. Enable scheduled refresh under **设置 → 桌面 → 机场自动更新 (Settings → Desktop → Provider auto-update)**.
