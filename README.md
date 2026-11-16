@@ -2,17 +2,18 @@
 
 **为日常连接而设计的 VPN 客户端。**
 
-[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.6/Stellaria-Link-0.10.6-0J06b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.6) · [快速开始](#快速开始) · [English](README.en.md)
+[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.8/Stellaria-Link-0.10.8-0J08b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.8) · [快速开始](#快速开始) · [English](README.en.md)
 
-**0.10.6 · 0J06b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
+**0.10.8 · 0J08b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
 
 Stellaria Link 将加密连接、节点选择、规则分流与连接维护整合进一个紧凑的桌面面板。LinkCore 负责数据传输与连接生命周期，LinkGuard 观察信道状态并按需执行恢复策略，让日常连接更容易管理。
 
-## 0J06b 更新
+## 0J08b 更新
 
-- 修复其它 VPN 已开启时的节点引导接口识别，改为读取现有物理路由。
-- 减少测速结果与进度的重复读取，优化结果刷新与节点页切换。
-- 补充物理网络与空 DNS 结果提示，并在节点详情展示失败代码。
+- 修复节点地址解析的冷启动时间预算，在既有超时内并行尝试已配置的解析服务，避免过早失败。
+- 复用已验证的 DNS over HTTPS 连接，减少连续测速和连接准备中的重复握手；网络路径更新时清理复用连接。
+- 区分通道就绪、节点验证与实际应用响应，并保留测速中的具体失败原因。
+- **TUN 模式需要升级网络助手**，才能启用本轮节点解析修复。完成授权并等待助手就绪后再连接。
 
 ![Stellaria Link 连接首页](docs/images/connection.png)
 
@@ -29,7 +30,7 @@ Stellaria Link 将加密连接、节点选择、规则分流与连接维护整�
 
 ## 快速开始
 
-1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.6) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
+1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.8) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
 2. 打开 Link，点击 **添加连接**，粘贴机场 HTTPS 订阅、节点链接，或导入已有 YAML 配置。
 3. 在 **节点** 页测试并选择节点或策略组，回到首页选择 **代理接入** 与 **规则 / 全局**，点击 **连接**。
 4. 在 **订阅** 页管理配置；在 **设置 → 桌面 → 机场自动更新** 开启定时更新。
@@ -42,7 +43,7 @@ Stellaria Link 将加密连接、节点选择、规则分流与连接维护整�
 | 系统代理 | 让浏览器等遵循系统代理的应用使用 Link。 |
 | TUN 模式 | 通过虚拟网卡接收应用流量，再按规则 / 全局模式处理；首次使用按引导安装系统网络组件。 |
 
-首次打开若 macOS 提示无法验证开发者，可在 **系统设置 → 隐私与安全性** 中选择打开本次下载的 Link。TUN 模式的首次组件安装需要管理员授权。
+首次打开若 macOS 提示无法验证开发者，可在 **系统设置 → 隐私与安全性** 中选择打开本次下载的 Link。TUN 模式的首次组件安装需要管理员授权。在 **设置 → 网络助手** 完成系统 Terminal 授权后，请等待 Link 显示“网络助手已安装并就绪”再连接。本轮 TUN 节点解析修复需要新版网络助手；已安装的旧助手也需升级。
 
 ## 节点与连接质量
 

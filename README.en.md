@@ -2,17 +2,18 @@
 
 **A focused VPN client for everyday connectivity.**
 
-[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.6/Stellaria-Link-0.10.6-0J06b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.6) · [Getting started](#getting-started) · [简体中文](README.md)
+[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.8/Stellaria-Link-0.10.8-0J08b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.8) · [Getting started](#getting-started) · [简体中文](README.md)
 
-**0.10.6 · 0J06b**　|　macOS · Apple Silicon　|　Public Beta update
+**0.10.8 · 0J08b**　|　macOS · Apple Silicon　|　Public Beta update
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
 
-## What’s new in 0J06b
+## What’s new in 0J08b
 
-- Fixes physical-interface selection for node bootstrap while another VPN is active, using the existing routing snapshot.
-- Reduces repeated reads of test results and progress when refreshing results or switching the Nodes page.
-- Adds clearer physical-network and empty-DNS messages, with the failure code available in node details.
+- Fixes cold-start DNS budget handling for node addresses by trying configured resolvers concurrently within the existing deadline.
+- Reuses verified DNS-over-HTTPS connections during node tests and connection preparation, clearing the pool when the network path is refreshed.
+- Separates channel readiness, node checks and real application responses, while retaining specific test failures.
+- **TUN mode requires a network helper upgrade** for these node-resolution changes. Complete authorization and wait for the helper to be ready before connecting.
 
 ![Stellaria Link connection overview](docs/images/connection.png)
 
@@ -29,7 +30,7 @@ Stellaria Link brings encrypted connections, node selection, routing rules and c
 
 ## Getting started
 
-1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.6) and drag **Stellaria Link** into **Applications**.
+1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.8) and drag **Stellaria Link** into **Applications**.
 2. Open Link and select **添加连接 (Add connection)** to paste an HTTPS subscription, import a node link or load an existing YAML configuration.
 3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose proxy access and Rule / Global routing and select **连接 (Connect)**.
 4. Manage configurations on the **订阅 (Subscriptions)** page. Enable scheduled refresh under **设置 → 桌面 → 机场自动更新 (Settings → Desktop → Provider auto-update)**.
@@ -42,7 +43,7 @@ Stellaria Link brings encrypted connections, node selection, routing rules and c
 | System proxy | Browsers and other applications that follow macOS system proxy settings. |
 | TUN mode | Receive application traffic through a virtual interface and apply Rule / Global routing; follow first-use setup for the network component. |
 
-If macOS requests confirmation on the beta's first launch, use **System Settings → Privacy & Security** to open the downloaded Link app. Installing the TUN network component for the first time requires administrator authorization.
+If macOS requests confirmation on the beta's first launch, use **System Settings → Privacy & Security** to open the downloaded Link app. Installing the TUN network component for the first time requires administrator authorization. Complete the system Terminal authorization in **Settings → Network helper**, then wait for Link to confirm that the helper is installed and ready before connecting. The TUN node-resolution fix requires the new network helper; an already installed older helper must also be updated.
 
 ## Nodes and connection quality
 
