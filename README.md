@@ -2,17 +2,17 @@
 
 **为日常连接而设计的 VPN 客户端。**
 
-[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.5/Stellaria-Link-0.10.5-0J05b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.5) · [快速开始](#快速开始) · [English](README.en.md)
+[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.6/Stellaria-Link-0.10.6-0J06b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.6) · [快速开始](#快速开始) · [English](README.en.md)
 
-**0.10.5 · 0J05b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
+**0.10.6 · 0J06b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
 
 Stellaria Link 将加密连接、节点选择、规则分流与连接维护整合进一个紧凑的桌面面板。LinkCore 负责数据传输与连接生命周期，LinkGuard 观察信道状态并按需执行恢复策略，让日常连接更容易管理。
 
-## 0J05b 更新
+## 0J06b 更新
 
-- 修复 macOS 安装包中的 Qt 框架引用，避免启动时同时加载外部与包内 Qt。
-- 打包流程增加 Qt 依赖与原生启动检查，阻止 Qt 依赖检查未通过的包进入更新通道。
-- 保留连接准备提示、测速界面独立通知和 macOS CPU 统计修复。
+- 修复其它 VPN 已开启时的节点引导接口识别，改为读取现有物理路由。
+- 减少测速结果与进度的重复读取，优化结果刷新与节点页切换。
+- 补充物理网络与空 DNS 结果提示，并在节点详情展示失败代码。
 
 ![Stellaria Link 连接首页](docs/images/connection.png)
 
@@ -29,7 +29,7 @@ Stellaria Link 将加密连接、节点选择、规则分流与连接维护整�
 
 ## 快速开始
 
-1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.5) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
+1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.6) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
 2. 打开 Link，点击 **添加连接**，粘贴机场 HTTPS 订阅、节点链接，或导入已有 YAML 配置。
 3. 在 **节点** 页测试并选择节点或策略组，回到首页选择 **代理接入** 与 **规则 / 全局**，点击 **连接**。
 4. 在 **订阅** 页管理配置；在 **设置 → 桌面 → 机场自动更新** 开启定时更新。

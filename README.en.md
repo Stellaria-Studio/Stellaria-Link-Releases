@@ -2,17 +2,17 @@
 
 **A focused VPN client for everyday connectivity.**
 
-[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.5/Stellaria-Link-0.10.5-0J05b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.5) · [Getting started](#getting-started) · [简体中文](README.md)
+[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.6/Stellaria-Link-0.10.6-0J06b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.6) · [Getting started](#getting-started) · [简体中文](README.md)
 
-**0.10.5 · 0J05b**　|　macOS · Apple Silicon　|　Public Beta update
+**0.10.6 · 0J06b**　|　macOS · Apple Silicon　|　Public Beta update
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
 
-## What’s new in 0J05b
+## What’s new in 0J06b
 
-- Fixes Qt framework references in the macOS bundle to avoid loading external and bundled Qt together at startup.
-- Adds Qt dependency and native launch checks to packaging before a package enters the update channel.
-- Retains connection preparation prompts, separate node-test UI notifications and corrected macOS CPU statistics.
+- Fixes physical-interface selection for node bootstrap while another VPN is active, using the existing routing snapshot.
+- Reduces repeated reads of test results and progress when refreshing results or switching the Nodes page.
+- Adds clearer physical-network and empty-DNS messages, with the failure code available in node details.
 
 ![Stellaria Link connection overview](docs/images/connection.png)
 
@@ -29,7 +29,7 @@ Stellaria Link brings encrypted connections, node selection, routing rules and c
 
 ## Getting started
 
-1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.5) and drag **Stellaria Link** into **Applications**.
+1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.6) and drag **Stellaria Link** into **Applications**.
 2. Open Link and select **添加连接 (Add connection)** to paste an HTTPS subscription, import a node link or load an existing YAML configuration.
 3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose proxy access and Rule / Global routing and select **连接 (Connect)**.
 4. Manage configurations on the **订阅 (Subscriptions)** page. Enable scheduled refresh under **设置 → 桌面 → 机场自动更新 (Settings → Desktop → Provider auto-update)**.
