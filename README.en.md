@@ -2,18 +2,19 @@
 
 **A focused VPN client for everyday connectivity.**
 
-[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.8/Stellaria-Link-0.10.8-0J08b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.8) · [Getting started](#getting-started) · [简体中文](README.md)
+[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.9/Stellaria-Link-0.10.9-0J09b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.9) · [Getting started](#getting-started) · [简体中文](README.md)
 
-**0.10.8 · 0J08b**　|　macOS · Apple Silicon　|　Public Beta update
+**0.10.9 · 0J09b**　|　macOS · Apple Silicon　|　Public Beta update
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
 
-## What’s new in 0J08b
+## What’s new in 0J09b
 
-- Fixes cold-start DNS budget handling for node addresses by trying configured resolvers concurrently within the existing deadline.
-- Reuses verified DNS-over-HTTPS connections during node tests and connection preparation, clearing the pool when the network path is refreshed.
-- Separates channel readiness, node checks and real application responses, while retaining specific test failures.
-- **TUN mode requires a network helper upgrade** for these node-resolution changes. Complete authorization and wait for the helper to be ready before connecting.
+- Fixes an incorrect native-helper block after a successful connection through a node whose certificate exception was locally accepted.
+- Prepares the selected gateway first. In reviewed rule mode, other node addresses resolve on demand instead of being excluded for the entire session after a startup timeout.
+- Retains imported routing, configured DNS authorities and physical interface bindings. Block reasons, footer status and recovery actions now agree.
+- **TUN mode requires a network helper upgrade**. Use **高级工作台 → 系统组件 → 安装 / 升级助手**, complete local authorization and wait for readiness.
+- Japan nodes and real HTTPS forwarding passed in this round. Singapore06 failed in both Link and an independent Mihomo comparison. Whole-host TUN, hardware energy and long-term stability remain under qualification; these results do not establish all-provider parity.
 
 ![Stellaria Link connection overview](docs/images/connection.png)
 
@@ -30,7 +31,7 @@ Stellaria Link brings encrypted connections, node selection, routing rules and c
 
 ## Getting started
 
-1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.8) and drag **Stellaria Link** into **Applications**.
+1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.9) and drag **Stellaria Link** into **Applications**.
 2. Open Link and select **添加连接 (Add connection)** to paste an HTTPS subscription, import a node link or load an existing YAML configuration.
 3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose proxy access and Rule / Global routing and select **连接 (Connect)**.
 4. Manage configurations on the **订阅 (Subscriptions)** page. Enable scheduled refresh under **设置 → 桌面 → 机场自动更新 (Settings → Desktop → Provider auto-update)**.
