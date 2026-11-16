@@ -2,17 +2,19 @@
 
 **A focused VPN client for everyday connectivity.**
 
-[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.4/Stellaria-Link-0.10.4-0J04b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.4) · [Getting started](#getting-started) · [简体中文](README.md)
+> **0J04b downloads are paused because the macOS package crashes on launch. Downloads temporarily use 0J03b while the 0J05b fix is validated.** [Read the incident notice](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.4)
 
-**0.10.4 · 0J04b**　|　macOS · Apple Silicon　|　Public Beta update
+[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.3/Stellaria-Link-0.10.3-0J03b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.3) · [Getting started](#getting-started) · [简体中文](README.md)
+
+**0.10.3 · 0J03b**　|　macOS · Apple Silicon　|　Public Beta update
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
 
-## What’s new in 0J04b
+## What’s new in 0J03b
 
-- Shows a confirmation when TUN routing requires approval for DIRECT rules, with clearer connection-scope and status text.
-- Uses separate, coalesced UI updates for node test results and progress to reduce repeated refreshes, with clearer queue and older-result messages.
-- Corrects macOS process CPU-time conversion that previously understated Apple Silicon readings.
+- Fixes explicitly approved node certificate-risk choices being lost after hostname resolution or network-interface changes.
+- Prepares required GEO data during import so supported policy groups and routing rules are retained. The cache refreshes on demand after 24 hours, with validated cached data retained when offline.
+- Adjusts full-configuration preflight timeouts and certificate-risk messaging.
 
 ![Stellaria Link connection overview](docs/images/connection.png)
 
@@ -29,20 +31,20 @@ Stellaria Link brings encrypted connections, node selection, routing rules and c
 
 ## Getting started
 
-1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.4) and drag **Stellaria Link** into **Applications**.
+1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.3) and drag **Stellaria Link** into **Applications**.
 2. Open Link and select **添加连接 (Add connection)** to paste an HTTPS subscription, import a node link or load an existing YAML configuration.
-3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose proxy access and Rule / Global routing and select **连接 (Connect)**.
+3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose a connection scope and select **连接 (Connect)**.
 4. Manage configurations on the **订阅 (Subscriptions)** page. Enable scheduled refresh under **设置 → 桌面 → 机场自动更新 (Settings → Desktop → Provider auto-update)**.
 5. Check app and Core updates under **设置 → 连接 → 检查更新 (Settings → Connection → Check for updates)**.
 6. Select the account entry at the bottom of the sidebar to sign in, manage your account and display Link supporter status in the separate Stellaria Pass window.
 
-| Proxy access | Use case |
+| Connection scope | Use case |
 | --- | --- |
-| Local proxy only | Start a local HTTP / SOCKS port; configure its address in the app. Host proxy settings and routes stay unchanged. |
+| Application proxy | A local HTTP / SOCKS proxy for selected applications. |
 | System proxy | Browsers and other applications that follow macOS system proxy settings. |
-| TUN mode | Receive application traffic through a virtual interface and apply Rule / Global routing; follow first-use setup for the network component. |
+| Device VPN | Forward device traffic through macOS TUN; follow the first-use setup for the system network component. |
 
-If macOS requests confirmation on the beta's first launch, use **System Settings → Privacy & Security** to open the downloaded Link app. Installing the TUN network component for the first time requires administrator authorization.
+If macOS requests confirmation on the beta's first launch, use **System Settings → Privacy & Security** to open the downloaded Link app. Installing the device-mode network component for the first time requires administrator authorization.
 
 ## Nodes and connection quality
 
