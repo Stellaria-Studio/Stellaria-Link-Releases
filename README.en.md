@@ -8,6 +8,16 @@
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
 
+## Windows x64 preview
+
+[Download Windows x64 ZIP](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.11-windows.1/Stellaria-Link-0.10.11-0J11b-Windows-x64.zip) · [Windows notes and SHA-256](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11-windows.1)
+
+Includes local proxy, Windows system proxy and whole-device TUN. Extract the complete archive and run `Start-Link.cmd`. If required, install the included Microsoft `VC_redist.x64.exe`. The optional `Install-ForUser.ps1` installs for the current user and creates shortcuts.
+
+For TUN, install the network helper from the advanced workbench and accept UAC once. Run the everyday desktop as a standard user. Switch during a dedicated window after exiting other VPNs. Disconnect or explicit recovery removes Link-owned network changes; protection survives service failure until explicit recovery. Avoid running two whole-device VPNs together.
+
+Disposable Windows VM tests cover IPv4/IPv6 TCP, UDP, DNS, pause/resume, service crash protection and cleanup. This application is an unsigned preview. Windows process routing, hardware sleep/roaming and long-term stability remain unqualified. Windows updates are manual through Releases. Existing macOS guidance below continues to apply to macOS.
+
 ## What’s new in 0J11b
 
 

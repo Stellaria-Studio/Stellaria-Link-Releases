@@ -8,6 +8,16 @@
 
 Stellaria Link 将加密连接、节点选择、规则分流与连接维护整合进一个紧凑的桌面面板。LinkCore 负责数据传输与连接生命周期，LinkGuard 观察信道状态并按需执行恢复策略，让日常连接更容易管理。
 
+## Windows x64 预览版
+
+[下载 Windows x64 ZIP](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.11-windows.1/Stellaria-Link-0.10.11-0J11b-Windows-x64.zip) · [Windows 发行说明与 SHA-256](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11-windows.1)
+
+支持本地代理、Windows 系统代理及整机 TUN。完整解压后运行 `Start-Link.cmd`；缺少运行库时可运行随包的微软 `VC_redist.x64.exe`。可选运行 `Install-ForUser.ps1` 安装到当前用户并创建快捷方式。
+
+首次使用整机 TUN，请在高级工作台安装网络助手并允许 UAC；日常界面可用普通用户启动。安排独立切换窗口并退出其他 VPN 后连接，断开或使用恢复操作会清理 Link 自己的网络配置。服务故障时防护继续保留，需显式恢复。不要同时开启两个整机 VPN。
+
+整机 IPv4/IPv6 TCP、UDP、DNS、暂停恢复、服务崩溃保护及清理已在一次性 Windows 虚拟机验证。当前为未签名预览版，Windows 按进程分流、真实硬件休眠跨网及长期稳定性尚未验收；Windows 更新通过发行页手动下载。下方原有 macOS 说明保持适用于 macOS。
+
 ## 0J11b 更新
 
 

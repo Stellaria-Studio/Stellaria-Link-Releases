@@ -1,0 +1,26 @@
+{
+  "tag": "v0.10.11-windows.1",
+  "url": "https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11-windows.1",
+  "published": true,
+  "prerelease": true,
+  "assets": [
+    {
+      "name": "SHA256SUMS-Windows-x64.txt",
+      "size": 112,
+      "digest": "sha256:b3f8a89e323565c3d9b95a84cd0facc1bed4e114dcf6f9ce3a2a203177867849",
+      "browser_download_url": "https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.11-windows.1/SHA256SUMS-Windows-x64.txt"
+    },
+    {
+      "name": "Stellaria-Link-0.10.11-0J11b-Windows-x64.zip",
+      "size": 85264887,
+      "digest": "sha256:c486a02e29c99602da8dc2323ff95d9623131cead207110c8fe2a5f214d07da2",
+      "browser_download_url": "https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.11-windows.1/Stellaria-Link-0.10.11-0J11b-Windows-x64.zip"
+    },
+    {
+      "name": "Windows-Qualification.json",
+      "size": 1253,
+      "digest": "sha256:03f1fe5adf1f08d2766bfb1237cdd69735c4b336f7347a57c1ce3e9d2d598104",
+      "browser_download_url": "https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.11-windows.1/Windows-Qualification.json"
+    }
+  ]
+}

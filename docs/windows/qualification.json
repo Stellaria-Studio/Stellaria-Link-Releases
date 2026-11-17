@@ -1,0 +1,24 @@
+{
+  "version": "0.10.11",
+  "distribution": "0J11b-windows.1",
+  "platform": "windows-amd64",
+  "source_commit": "2ba839f5cfd2d3b74f516037946487c608a908e4",
+  "source_tree_clean_at_build": false,
+  "native_workflow": "https://github.com/Stellaria-Studio/Stellaria-Link-Releases/actions/runs/44123392234",
+  "native_result": "passed",
+  "original_vm_defaults_and_dns_restored": true,
+  "core_sha256": "45cc023cd2907e31dff030bdf378e3cbcae3c58110a46ada8aa188a0004d4304",
+  "ui_sha256": "23d3f3fb2f5ba8a0c8d0c20b19f3a1ea6f11f1e8e1372ba106e037cc38107f67",
+  "driver_sha256": "e5da8447dc2c320edc0fc52fa01885c103de8c118481f683643cacc3220dafce",
+  "runtime_sha256": "cc0ff0eb1dc3f5188ae6300faef32bf5beeba4bdd6e8e445a9184072096b713b",
+  "standalone_ui_render": true,
+  "full_go_and_qt_regression": "passed",
+  "scope": "short-window disposable Windows VM and local desktop deployment",
+  "limitations": [
+    "Unsigned application preview",
+    "Windows process routing unavailable",
+    "Physical hardware sleep, roaming, IPv6 leak and seven-day qualification pending",
+    "Manual Windows updates"
+  ],
+  "build_worktree_note": "Only generated Windows qualification reports were uncommitted; production source matches source_commit."
+}
