@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "name": "Stellaria-Link-Releases",
+  "components": {
+    "project": {
+      "description": "Public Link binary releases and signed update manifests; private source stays in its source repository.",
+      "paths": [
+        "README.md"
+      ],
+      "approved": [
+        "README.md"
+      ],
+      "required_files": [
+        "README.md"
+      ],
+      "build_targets": [],
+      "validation": [],
+      "pitfalls": [
+        "Source and project contracts remain authoritative; declared capabilities need matching execution evidence."
+      ],
+      "evidence": []
+    }
+  },
+  "build_metadata": []
+}

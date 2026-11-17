@@ -1,0 +1,35 @@
+{
+  "schema": "stellaria.sea.project.v2",
+  "id": "Stellaria-Studio/Stellaria-Link-Releases",
+  "name": "Stellaria-Link-Releases",
+  "repository": "Stellaria-Studio/Stellaria-Link-Releases",
+  "defaultBranch": "main",
+  "tier": "C",
+  "profile": "release-mirror",
+  "purpose": "Public Link binary releases and signed update manifests; private source stays in its source repository.",
+  "visibility": "public",
+  "concepts": ".sea/concepts.json",
+  "invariants": [
+    "Source and project contracts remain authoritative; declared capabilities need matching execution evidence."
+  ],
+  "runtime": {
+    "repository": "Stellaria-Studio/Stellaria-SEA",
+    "version": "2.0.0",
+    "protocol": 2,
+    "sourceCommit": "6207b585ffabb8d182432bb3a03ba4d0a5279aa6"
+  },
+  "legacy": {
+    "definition": "tools/sea/project.json",
+    "history": "read-only; preserve original bytes"
+  },
+  "features": {
+    "contextBroker": true,
+    "architectureRegistry": true,
+    "localTaskCapsules": true,
+    "identityBinding": false,
+    "approvalWorkflow": false,
+    "enforcement": false,
+    "automaticPush": false
+  },
+  "sourceBaseline": "336b232af1cc9e1b36519e5fd7cc362ec1772805"
+}
