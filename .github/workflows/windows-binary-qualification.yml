@@ -1,0 +1,37 @@
+name: Windows binary qualification
+on:
+  workflow_dispatch:
+    inputs:
+      draft_tag:
+        description: Draft release holding the closed binaries for isolated testing
+        type: string
+        required: true
+permissions:
+  contents: write
+jobs:
+  native:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    steps:
+      - name: Verify disposable runner
+        shell: pwsh
+        run: |
+          if ($env:RUNNER_ENVIRONMENT -ne 'github-hosted') { throw 'Hosted VM required' }
+          Write-Output 'Disposable Windows runner available; binaries remain draft assets.'
+      - name: Download draft binary test kit
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DRAFT_TAG: ${{ inputs.draft_tag }}
+        run: |
+          gh release download $env:DRAFT_TAG --repo $env:GITHUB_REPOSITORY --pattern Windows-Native-TestKit.zip --dir .
+          Expand-Archive Windows-Native-TestKit.zip -DestinationPath lab
+      - name: Qualify Windows TUN
+        shell: pwsh
+        run: ./lab/Run-Lab.ps1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-native-evidence
+          path: lab/evidence
+          if-no-files-found: ignore
