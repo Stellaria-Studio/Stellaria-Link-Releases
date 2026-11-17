@@ -2,19 +2,21 @@
 
 **A focused VPN client for everyday connectivity.**
 
-[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.10/Stellaria-Link-0.10.10-0J10b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.10) · [Getting started](#getting-started) · [简体中文](README.md)
+[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.11/Stellaria-Link-0.10.11-0J11b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11) · [Getting started](#getting-started) · [简体中文](README.md)
 
-**0.10.10 · 0J10b**　|　macOS · Apple Silicon　|　Public Beta update
+**0.10.11 · 0J11b**　|　macOS · Apple Silicon　|　Public Beta update
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
 
-## What’s new in 0J10b
+## What’s new in 0J11b
 
-- Improves automatic retries after macOS wake and network changes while retaining the selected node, routing rules and accepted local certificate-risk choices. An explicit pause stays paused.
-- Fixes missed cleanup of old physical gateway routes and verifies restoration of Link-owned host settings before disconnect completes.
-- Reduces duplicate network refreshes and unrelated gateway preparation. Background activity animations follow window state and reduced-motion preferences.
-- **TUN mode requires a network helper upgrade**. Use **高级工作台 → 系统组件 → 安装 / 升级助手**, complete local authorization and wait for readiness. Use the new bundled LinkCore as well.
-- Regression and independent application-proxy HTTPS checks passed. Real clamshell roaming, whole-host TUN, hardware energy and long-term stability remain under qualification; this is not all-provider or all-network qualification.
+
+- Coalesces temporary single-node failures into bounded, demand-only retries. Cooldown waits release handshake slots; no idle node sweep is added.
+- Automatic groups prefer observed availability before latency, within existing rules, manual choices and authorized pool membership.
+- Guard requests explicit local consent before isolating a node. Continuing with protocol verification and existing valid owners is the default.
+- Separates network recovery, user-authorized isolation and local control faults. Failure counters no longer exclude a sole path through a hard budget gate.
+- **New risk decisions require an updated network helper.** Keep the working VPN session, arrange a disconnect, then use **高级工作台 → 系统组件 → 安装 / 升级助手** for local authorization. The update does not automatically switch the current network.
+- Fault-injection, concurrency and UI regressions are checked separately from real clamshell roaming, whole-host TUN, hardware energy and long-term stability qualification.
 
 ![Stellaria Link connection overview](docs/images/connection.png)
 
@@ -31,7 +33,7 @@ Stellaria Link brings encrypted connections, node selection, routing rules and c
 
 ## Getting started
 
-1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.10) and drag **Stellaria Link** into **Applications**.
+1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11) and drag **Stellaria Link** into **Applications**.
 2. Open Link and select **添加连接 (Add connection)** to paste an HTTPS subscription, import a node link or load an existing YAML configuration.
 3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose proxy access and Rule / Global routing and select **连接 (Connect)**.
 4. Manage configurations on the **订阅 (Subscriptions)** page. Enable scheduled refresh under **设置 → 桌面 → 机场自动更新 (Settings → Desktop → Provider auto-update)**.

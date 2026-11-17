@@ -2,19 +2,21 @@
 
 **为日常连接而设计的 VPN 客户端。**
 
-[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.10/Stellaria-Link-0.10.10-0J10b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.10) · [快速开始](#快速开始) · [English](README.en.md)
+[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.11/Stellaria-Link-0.10.11-0J11b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11) · [快速开始](#快速开始) · [English](README.en.md)
 
-**0.10.10 · 0J10b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
+**0.10.11 · 0J11b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
 
 Stellaria Link 将加密连接、节点选择、规则分流与连接维护整合进一个紧凑的桌面面板。LinkCore 负责数据传输与连接生命周期，LinkGuard 观察信道状态并按需执行恢复策略，让日常连接更容易管理。
 
-## 0J10b 更新
+## 0J11b 更新
 
-- 改善 macOS 合盖唤醒和切换网络后的自动重试，保留当前节点、规则和已接受的本地证书风险选择；主动暂停保持暂停。
-- 修复旧网关路由遗漏清理，并在断开前核验 Link 对系统网络设置的恢复。
-- 减少重复网络刷新和无关节点预解析；后台忙碌动画遵循窗口状态及减少动态效果设置。
-- **TUN 模式需要同步升级网络助手**。在 **高级工作台 → 系统组件 → 安装 / 升级助手** 完成本机授权，等待就绪后再连接；同时使用本安装包提供的新版 LinkCore。
-- 回归测试与独立应用代理 HTTPS 检查通过。真实合盖换网、整机 TUN、硬件能耗和长期稳定性仍在验收，尚不代表所有线路和环境均已通过。
+
+- 单节点临时波动使用合并请求、低开销退避重连，等待时释放握手配额；空闲时不扫描节点。
+- 自动选择先参考实际可用性，再比较延迟，始终遵循原有规则、手动选择和授权节点池。
+- Guard 隔离先请求明确同意；默认保留现有有效连接、协议验证与自动重试。
+- 网络恢复、用户隔离及本机控制故障分别显示；失败计数不再使单节点进入预算阻断。
+- **新的风险确认需要同步升级网络助手**。保留正在工作的 VPN，安排断开后，在 **高级工作台 → 系统组件 → 安装 / 升级助手** 完成本机授权。升级不会自动替你切换当前网络。
+- 故障注入、并发和界面回归已验证；真实合盖跨网、整机 TUN、硬件能耗和长期稳定性仍是独立验收项。
 
 ![Stellaria Link 连接首页](docs/images/connection.png)
 
@@ -31,7 +33,7 @@ Stellaria Link 将加密连接、节点选择、规则分流与连接维护整�
 
 ## 快速开始
 
-1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.10) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
+1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
 2. 打开 Link，点击 **添加连接**，粘贴机场 HTTPS 订阅、节点链接，或导入已有 YAML 配置。
 3. 在 **节点** 页测试并选择节点或策略组，回到首页选择 **代理接入** 与 **规则 / 全局**，点击 **连接**。
 4. 在 **订阅** 页管理配置；在 **设置 → 桌面 → 机场自动更新** 开启定时更新。
