@@ -1,0 +1,33 @@
+{
+  "schema": "stellaria.sea.evidence.v2",
+  "passed": true,
+  "gate": "Document Windows setup, UAC, qualification and known boundaries.",
+  "command": "GitHub binary-only Windows qualification 44123392234; published release asset digest and setup documentation verification",
+  "exitCode": 0,
+  "sourceCommit": "295fe6124e17a94c47fd57e33be2c871da2f96cc",
+  "artifacts": [
+    {
+      "path": "docs/windows/qualification.json",
+      "sha256": "03f1fe5adf1f08d2766bfb1237cdd69735c4b336f7347a57c1ce3e9d2d598104"
+    },
+    {
+      "path": "docs/windows/archive.json",
+      "sha256": "6829eef8c07ee0670cfa72404a8f12813528a953791e9dc0c96d5f9ffb08479b"
+    },
+    {
+      "path": "docs/windows/release.json",
+      "sha256": "2365db27881c393e9e2a72deed25e38bad35d1b413df275daebb7d9aecbec175"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "sha256": "f52cb9feae445509687ed94b89b0e84342d785797ddff685833c9e99cc1ad57e"
+    },
+    {
+      "path": "README.en.md",
+      "sha256": "1ecda0d64db18c1ea322b07ce830146cb8ab3c189e4c503848900db3fb7305e0"
+    }
+  ],
+  "independentAcceptance": false
+}
