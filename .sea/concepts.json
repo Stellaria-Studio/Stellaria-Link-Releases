@@ -14,7 +14,8 @@
       "Source and project contracts remain authoritative; declared capabilities need matching execution evidence."
     ],
     "implementationPaths": [
-      "README.md"
+      "README.md",
+      "verify-release.py"
     ],
     "dependsOn": [],
     "acceptanceGates": [
