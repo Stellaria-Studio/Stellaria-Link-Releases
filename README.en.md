@@ -2,9 +2,9 @@
 
 **A focused VPN client for everyday connectivity.**
 
-[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.11/Stellaria-Link-0.10.11-0J11b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11) · [Getting started](#getting-started) · [简体中文](README.md)
+[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.12/Stellaria-Link-0.10.12-0J12b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.12) · [Getting started](#getting-started) · [简体中文](README.md)
 
-**0.10.11 · 0J11b**　|　macOS · Apple Silicon　|　Public Beta update
+**0.10.12 · 0J12b**　|　macOS · Apple Silicon　|　Public Beta update
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
 
@@ -18,15 +18,11 @@ For TUN, install the network helper from the advanced workbench and accept UAC o
 
 Disposable Windows VM tests cover IPv4/IPv6 TCP, UDP, DNS, pause/resume, service crash protection and cleanup. This application is an unsigned preview. Windows process routing, hardware sleep/roaming and long-term stability remain unqualified. Windows updates are manual through Releases. Existing macOS guidance below continues to apply to macOS.
 
-## What’s new in 0J11b
+## What’s new in 0J12b for macOS
 
-
-- Coalesces temporary single-node failures into bounded, demand-only retries. Cooldown waits release handshake slots; no idle node sweep is added.
-- Automatic groups prefer observed availability before latency, within existing rules, manual choices and authorized pool membership.
-- Guard requests explicit local consent before isolating a node. Continuing with protocol verification and existing valid owners is the default.
-- Separates network recovery, user-authorized isolation and local control faults. Failure counters no longer exclude a sole path through a hard budget gate.
-- **New risk decisions require an updated network helper.** Keep the working VPN session, arrange a disconnect, then use **高级工作台 → 系统组件 → 安装 / 升级助手** for local authorization. The update does not automatically switch the current network.
-- Fault-injection, concurrency and UI regressions are checked separately from real clamshell roaming, whole-host TUN, hardware energy and long-term stability qualification.
+- Choose the nodes eligible for automatic switching directly on the Nodes page. Stable mode scores candidates at connection time and keeps the healthy exit.
+- Link keeps retrying with backoff if the selected node or every authorized candidate is unavailable. The connection page offers node and subscription guidance.
+- The macOS installer includes the updated App and LinkCore. Update the app and network helper when the current VPN session is idle.
 
 ![Stellaria Link connection overview](docs/images/connection.png)
 
@@ -43,7 +39,7 @@ Disposable Windows VM tests cover IPv4/IPv6 TCP, UDP, DNS, pause/resume, service
 
 ## Getting started
 
-1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.11) and drag **Stellaria Link** into **Applications**.
+1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.12) and drag **Stellaria Link** into **Applications**.
 2. Open Link and select **添加连接 (Add connection)** to paste an HTTPS subscription, import a node link or load an existing YAML configuration.
 3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose proxy access and Rule / Global routing and select **连接 (Connect)**.
 4. Manage configurations on the **订阅 (Subscriptions)** page. Enable scheduled refresh under **设置 → 桌面 → 机场自动更新 (Settings → Desktop → Provider auto-update)**.
