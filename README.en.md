@@ -2,9 +2,9 @@
 
 **A focused VPN client for everyday connectivity.**
 
-[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.13/Stellaria-Link-0.10.13-0J13b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.13) · [Getting started](#getting-started) · [简体中文](README.md)
+[Download Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.14/Stellaria-Link-0.10.14-0J14b-macOS-arm64.dmg) · [Release notes](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.14) · [Getting started](#getting-started) · [简体中文](README.md)
 
-**0.10.13 · 0J13b**　|　macOS · Apple Silicon　|　Public Beta update
+**0.10.14 · 0J14b**　|　macOS · Apple Silicon　|　Public Beta update
 
 Stellaria Link brings encrypted connections, node selection, routing rules and connection maintenance into a compact desktop app. LinkCore owns data transport and connection lifetimes; LinkGuard observes channel conditions and applies recovery strategies when needed.
 
@@ -17,6 +17,12 @@ Includes local proxy, Windows system proxy and whole-device TUN. Extract the com
 For TUN, install the network helper from the advanced workbench and accept UAC once. Run the everyday desktop as a standard user. Switch during a dedicated window after exiting other VPNs. Disconnect or explicit recovery removes Link-owned network changes; protection survives service failure until explicit recovery. Avoid running two whole-device VPNs together.
 
 Disposable Windows VM tests cover IPv4/IPv6 TCP, UDP, DNS, pause/resume, service crash protection and cleanup. This application is an unsigned preview. Windows process routing, hardware sleep/roaming and long-term stability remain unqualified. Windows updates are manual through Releases. Existing macOS guidance below continues to apply to macOS.
+
+## What’s new in 0J14b for macOS
+
+- Link uses less work for backdrop capture and status refreshes while keeping the live blur, page transitions, and dialog animations.
+- Memory is listed per process for LinkCore, the Qt UI, the network helper, and the bridge. macOS TUN CPU time is now calibrated.
+- DNS can admit larger short bursts and releases completed UDP associations sooner.
 
 ## What’s new in 0J13b for macOS
 
@@ -45,7 +51,7 @@ Disposable Windows VM tests cover IPv4/IPv6 TCP, UDP, DNS, pause/resume, service
 
 ## Getting started
 
-1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.13) and drag **Stellaria Link** into **Applications**.
+1. Download the macOS Apple Silicon DMG from [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.14) and drag **Stellaria Link** into **Applications**.
 2. Open Link and select **添加连接 (Add connection)** to paste an HTTPS subscription, import a node link or load an existing YAML configuration.
 3. Test and select a node or policy group on the **节点 (Nodes)** page. Return home, choose proxy access and Rule / Global routing and select **连接 (Connect)**.
 4. Manage configurations on the **订阅 (Subscriptions)** page. Enable scheduled refresh under **设置 → 桌面 → 机场自动更新 (Settings → Desktop → Provider auto-update)**.
