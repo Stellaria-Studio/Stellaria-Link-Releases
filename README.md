@@ -2,9 +2,9 @@
 
 **为日常连接而设计的 VPN 客户端。**
 
-[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.15/Stellaria-Link-0.10.15-0J15b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.15) · [快速开始](#快速开始) · [English](README.en.md)
+[下载 Public Beta](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/download/v0.10.16/Stellaria-Link-0.10.16-0J16b-macOS-arm64.dmg) · [发行说明](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.16) · [快速开始](#快速开始) · [English](README.en.md)
 
-**0.10.15 · 0J15b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
+**0.10.16 · 0J16b**　｜　macOS · Apple Silicon　｜　Public Beta 更新
 
 Stellaria Link 将加密连接、节点选择、规则分流与连接维护整合进一个紧凑的桌面面板。LinkCore 负责数据传输与连接生命周期，LinkGuard 观察信道状态并按需执行恢复策略，让日常连接更容易管理。
 
@@ -17,6 +17,12 @@ Stellaria Link 将加密连接、节点选择、规则分流与连接维护整�
 首次使用整机 TUN，请在高级工作台安装网络助手并允许 UAC；日常界面可用普通用户启动。安排独立切换窗口并退出其他 VPN 后连接，断开或使用恢复操作会清理 Link 自己的网络配置。服务故障时防护继续保留，需显式恢复。不要同时开启两个整机 VPN。
 
 整机 IPv4/IPv6 TCP、UDP、DNS、暂停恢复、服务崩溃保护及清理已在一次性 Windows 虚拟机验证。当前为未签名预览版，Windows 按进程分流、真实硬件休眠跨网及长期稳定性尚未验收；Windows 更新通过发行页手动下载。下方原有 macOS 说明保持适用于 macOS。
+
+## 0J16b 更新
+
+- 连接页新增「网页登录」。macOS 整机模式可按用户确认临时放行一个私网 IPv4 认证地址，完成后继续验证网络。
+- 已确认的订阅支持自动刷新。完整配置暂不兼容时，可更新兼容节点并保留原有规则、分流和授权。
+- 高级工作台的连接记录、性能与资源各自滚动。
 
 ## 0J15b 更新
 
@@ -57,7 +63,7 @@ Stellaria Link 将加密连接、节点选择、规则分流与连接维护整�
 
 ## 快速开始
 
-1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.15) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
+1. 在 [Releases](https://github.com/Stellaria-Studio/Stellaria-Link-Releases/releases/tag/v0.10.16) 下载 macOS Apple Silicon 的 DMG，将 **Stellaria Link** 拖入 **Applications**。
 2. 打开 Link，点击 **添加连接**，粘贴机场 HTTPS 订阅、节点链接，或导入已有 YAML 配置。
 3. 在 **节点** 页测试并选择节点或策略组，回到首页选择 **代理接入** 与 **规则 / 全局**，点击 **连接**。
 4. 在 **订阅** 页管理配置；在 **设置 → 桌面 → 机场自动更新** 开启定时更新。
